@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Runnable</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="description" content="">
+		<meta name="author" content="chitacan">
+
+		<link href="public/stylesheets/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+		/* Sticky footer styles
+			 -------------------------------------------------- */
+		html,
+		body {
+			height: 100%;
+			overflow: hidden;
+			/* The html and body elements cannot have any padding or margin. */
+		}
+
+		html {
+			background-color: #222;
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=);
+			background-repeat: repeat;
+		}
+
+		/* Wrapper for page content to push down footer */
+		#wrap {
+			min-height: 100%;
+			height: auto !important;
+			height: 100%;
+			/* Negative indent footer by it's height */
+			margin: 0 auto -60px;
+		}
+
+		/* Set the fixed height of the footer here */
+		#push,
+		#footer {
+			margin-top: 10px;
+			height: 55px;
+		}
+		#footer {
+			background-color: #f5f5f5;
+		}
+
+		/* Lastly, apply responsive CSS fixes as necessary */
+		@media (max-width: 767px) {
+			#footer {
+				margin-left: -20px;
+				margin-right: -20px;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+
+		/* Custom page CSS
+	 	-------------------------------------------------- */
+		/* Not required for template or sticky footer method. */
+
+		.container {
+			width: auto;
+			max-width: 680px;
+		}
+		.container .credit {
+			margin: 20px 0;
+		}
+
+		#editor {
+			position:relative;
+			width: 100%;
+			height: 200px;
+			border-radius: 3px;
+		}
+
+		.page-header {
+			margin: 20px 0;
+		}
+		p.pull-right.muted {
+			display:inline-block;
+			margin: 10px 0 0;
+		}
+		</style>
+		<link href="public/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+		<link href="public/stylesheets/avgrund.css" rel="stylesheet">
+		<link href="public/stylesheets/bootstrap-notify.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<!--
+		There is a bug in webkit on osx.
+		"https://bugs.webkit.org/show_bug.cgi?id=101154".
+		Due to this, An bleeding shadow will appear around a scroll bar.
+		-->
+		<aside id="default-popup" class="avgrund-popup">
+			<div class="page-header">
+				<h4 class="text-info">Your code returns</h4>
+			</div>
+			<div style="width:100%; height:50px;">
+				<p>result</p>
+			</div>
+			<button class="btn btn-smaall" onclick="javascript:Avgrund.hide();">Close</button>
+			<p class="pull-right muted"><small>Popup by <a href="http://lab.hakim.se/avgrund/" target="_blank">Avgrund</a>.</small></p>
+		</aside>
+
+		<article class="avgrund-contents">
+			<div id="wrap">
+
+				<div class="container">
+					<div class="page-header">
+						<h1>Runnable Editor</h1>
+					</div>
+					<p class="lead">Run your own node.js's javascript code on the server without local node.js.</p>
+					<div id="editor">function foo() {
+	var x = "These strings ";
+	var y = "will be added ";
+	var z = "on your server!!";
+	return x + y + z;
+}
+foo();</div>
+					<p class="text-right">Editor from <a href="http://ace.ajax.org" target="_blank">Ace</a>.</p>
+					<button class="btn btn-large btn-primary" type="submit">Run On Server</button>
+				</div>
+
+				<div id="push"></div>
+			</div>
+
+			<div id="footer">
+				<div class="container">
+					<p class="muted credit">By chitacan. Inspired By <a href="http://tour.golang.org/#1" target="_blank">A Tour of Go</a>.</p>
+				</div>
+			</div>
+		</article>
+		<div class="avgrund-cover"></div>
+		<div class="notifications bottom-right"></div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="public/javascripts/bootstrap.js"></script>
+		<script src="public/javascripts/avgrund.js"></script>
+		<script src="public/javascripts/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://fgnass.github.com/spin.js/dist/spin.min.js"></script>
+		<script src="public/javascripts/bootstrap-notify.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="public/javascripts/client.js"></script>
+	</body>
+</html>
