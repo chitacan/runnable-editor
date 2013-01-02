@@ -6,6 +6,7 @@
     "start": "node app"
   },
   "dependencies": {
+		"colors": "*",
     "express": "3.1.0",
     "jade": "*",
 		"socket.io": "*"
