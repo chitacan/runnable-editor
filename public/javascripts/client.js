@@ -112,7 +112,7 @@
 		console.log('[run socket connected]');
 	});
 
-	runSocket.on('error', function(data) {
+	runSocket.on('run_error', function(data) {
 		hideSpin();
 		notification.notify({
 			message: { text:'[error] : ' + data.error },

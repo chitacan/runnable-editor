@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
 app.post('/run_code', function(req, res) {
 	var code = req.body.code;
 	if (!code) {
-		res.send({'error':'you should request with some code'});
+		res.send({'run_error':'you should request with some code'});
 		return;
 	}
 
@@ -56,7 +56,7 @@ app.post('/run_code', function(req, res) {
 		result = vm.runInNewContext(code, {});
 	} catch(e) {
 		console.log(e.toString().yellow);
-		res.send({'error':''});
+		res.send({'run_error':e.toString()});
 		return;
 	}
 	console.log('vm result : '.green + result);
@@ -70,7 +70,7 @@ io.of('/run').on('connection', function(socket) {
 
 		if (!code) {
 			socket.emit(
-				'error', 
+				'run_error', 
 				{success:false, error:'you should request with some code'}
 			);
 			return;
@@ -81,12 +81,12 @@ io.of('/run').on('connection', function(socket) {
 			result = vm.runInNewContext(code, sandbox);
 		} catch(e) {
 			console.log(e.toString().yellow);
-			socket.emit('error', {success:false, error:e.toString()});
+			socket.emit('run_error', {success:false, error:e.toString()});
 			return;
 		}
 
 		if (!result) {
-			socket.emit('error', {success:false, error:'nothing has been executed'});
+			socket.emit('run_error', {success:false, error:'nothing has been executed'});
 			return;
 		}
 		socket.emit(
