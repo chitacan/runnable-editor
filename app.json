@@ -1,0 +1,6 @@
+{
+  "name": "runnable editor",
+  "description": "Run you node.js code in your browser",
+  "repository": "https://github.com/chitacan/runnable-editor",
+  "keywords": ["node"]
+}
