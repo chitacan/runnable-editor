@@ -11,6 +11,6 @@ Run your own node.js's javascript code on the server without local node.js.
 * edit code & click `Run On Server`.
 * you can see the result with `avgrund` or `notifications`.
 
-## See Demo
+## Deploy to Heroku & see it!!
 
-on [Heroku](http://runnable-editor.herokuapp.com/)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/chitacan/runnable-editor)
